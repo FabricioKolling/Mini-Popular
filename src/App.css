@@ -1,0 +1,23 @@
+.navbar {
+
+  background-color: #104fcb;
+  color: white;
+}
+
+.menu {
+
+  color: white;
+  border-right: solid 1px white;
+}
+
+.menus {
+
+  color: white;
+}
+
+.menu .menus {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
