@@ -1,23 +1,237 @@
-.navbar {
 
+.main-content {
+
+  padding-top: 140px; 
+}
+
+.navbar-content-wrapper {
+  max-width: 1440px; 
+}
+
+/* Navbar Superior */
+.top-navbar {
+  background-color: #f8f9fa; 
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Logo */
+.logo {
+  width: 250px; 
+  height: auto; 
+}
+
+/* Container da Barra de Pesquisa */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 2px solid #104fcb; 
+  border-radius: 50px; 
+  padding: 0.25rem 1rem;
+  max-width: 50%;
+}
+
+/* Ícones dentro da barra de pesquisa */
+.search-icon, .mic-icon {
+  color: #6c757d;
+}
+
+/* Input da Pesquisa */
+.search-input {
+  border: none; 
+  box-shadow: none !important; 
+  background-color: transparent;
+  width: 100%;
+}
+.search-input:focus {
+  border: none;
+  background-color: transparent;
+}
+
+/* Seção de Login */
+.login-section {
+  color: #343a40 !important;
+}
+
+.login-icon {
+  color: #848484;
+  width: 3rem;
+  height: 3rem;
+}
+
+.login-text {
+  line-height: 1.2;
+  font-size: 1rem;
+  text-align: left;
+  color: #848484;
+}
+
+.login-text span {
+  display: block;
+  font-weight: 600;
+}
+
+/* Botão Verde (Carrinho/Salvos) */
+.cart-button {
+  border-radius: 50px !important;
+  font-weight: bold !important;
+  font-size: 1.2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0.5rem 1.5rem !important;
+  background-color: #4a9901;
+}
+
+/* Ícone de Roleta */
+.roulette-icon {
+  color: #000 !important;
+}
+
+
+/* --- ESTILOS PARA A BARRA AZUL (COM AJUSTES DE ALTURA) --- */
+.custom-navbar {
   background-color: #104fcb;
-  color: white;
 }
 
-.menu {
-
-  color: white;
-  border-right: solid 1px white;
+.menu-item {
+  color: white !important; 
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding-left: 1rem; 
+  padding-right: 1rem; 
+  border-right: 1px solid rgba(255, 255, 255, 0.4); 
 }
 
-.menus {
-
-  color: white;
+.menu-item:last-child {
+  border-right: none;
 }
 
-.menu .menus {
+.menu-item:hover {
+  color: #d1d1d1 !important;
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.RodapeTotal {
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.Rodape {
+
+  background-color: rgb(247, 244, 244);
+  border-top: solid 3rem #104fcb;
+  gap: 10px;
+  padding: 0 20px;
+
+}
+
+.BotoesTp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.BotaoFooter {
+  padding: 0% 1% 0% 1%;
+  margin: 1%;
+  
+}
+
+.botao {
+  flex: 1;
+  width: 130px; 
+  padding: 10px 14px !important;
+  border: solid 1px #104fcb;
+  border-radius: 15px;
+  background-color: rgb(247, 244, 244);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: black;
+}
+
+.ContainesItens {
+  display: flex;
+  gap: 10rem;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px;
+  background-color: rgb(247, 244, 244);
+  width: 100%;
+}
+
+.logo-coluna {
+  width: 100px;
+  height: auto;
+}
+
+.footer-logo {
+  width: 170px;
+  height: auto;
+}
+
+.endereco-coluna {
+  text-align: center;
+  color: #0d6efd;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.endereco-coluna p {
+  margin: 0;
+}
+
+.social-coluna {
+  text-align: center;
+}
+
+.social-coluna h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #0d6efd;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0d6efd;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: opacity 0.2s;
+}
+
+.social-icons a:hover {
+  opacity: 0.8;
+}
+
+.BordaAbaixo {
+  color: white;
+  background-color: #104fcb;
+  padding: 0.1%;
+  z-index: 1001;
+  padding-top: 15px
+
+}
+
+@media (max-width: 768px) {
+  .ContainesItens {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
 }
