@@ -1,132 +1,32 @@
-
-.main-content {
-
-  padding-top: 140px; 
-}
-
-.navbar-content-wrapper {
-  max-width: 1440px; 
-}
-
-/* Navbar Superior */
-.top-navbar {
-  background-color: #f8f9fa; 
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #dee2e6;
-}
-
-/* Logo */
-.logo {
-  width: 250px; 
-  height: auto; 
-}
-
-/* Container da Barra de Pesquisa */
-.search-container {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border: 2px solid #104fcb; 
-  border-radius: 50px; 
-  padding: 0.25rem 1rem;
-  max-width: 50%;
-}
-
-/* Ícones dentro da barra de pesquisa */
-.search-icon, .mic-icon {
-  color: #6c757d;
-}
-
-/* Input da Pesquisa */
-.search-input {
-  border: none; 
-  box-shadow: none !important; 
-  background-color: transparent;
-  width: 100%;
-}
-.search-input:focus {
-  border: none;
-  background-color: transparent;
-}
-
-/* Seção de Login */
-.login-section {
-  color: #343a40 !important;
-}
-
-.login-icon {
-  color: #848484;
-  width: 3rem;
-  height: 3rem;
-}
-
-.login-text {
-  line-height: 1.2;
-  font-size: 1rem;
-  text-align: left;
-  color: #848484;
-}
-
-.login-text span {
-  display: block;
-  font-weight: 600;
-}
-
-/* Botão Verde (Carrinho/Salvos) */
-.cart-button {
-  border-radius: 50px !important;
-  font-weight: bold !important;
-  font-size: 1.2rem !important;
-  display: flex !important;
-  align-items: center !important;
-  padding: 0.5rem 1.5rem !important;
-  background-color: #4a9901;
-}
-
-/* Ícone de Roleta */
-.roulette-icon {
-  color: #000 !important;
-}
-
-
-/* --- ESTILOS PARA A BARRA AZUL (COM AJUSTES DE ALTURA) --- */
-.custom-navbar {
+.navbar {
   background-color: #104fcb;
+  color: white;
 }
-
-.menu-item {
-  color: white !important; 
-  font-style: italic;
-  font-weight: 600;
-  font-size: 1.5rem;
-  padding-left: 1rem; 
-  padding-right: 1rem; 
-  border-right: 1px solid rgba(255, 255, 255, 0.4); 
+.menu {
+  color: white;
+  border-right: solid 1px white;
 }
-
-.menu-item:last-child {
-  border-right: none;
+.menus {
+  color: white;
 }
-
-.menu-item:hover {
-  color: #d1d1d1 !important;
+.menu .menus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .RodapeTotal {
-  position: fixed;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
   text-align: center;
+  margin-top: auto;
 }
 
 .Rodape {
-
   background-color: rgb(247, 244, 244);
   border-top: solid 3rem #104fcb;
   gap: 10px;
   padding: 0 20px;
-
+  transition: border-width 0.3s ease;
 }
 
 .BotoesTp {
@@ -134,16 +34,12 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-.BotaoFooter {
-  padding: 0% 1% 0% 1%;
-  margin: 1%;
-  
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 1rem 0;
 }
 
 .botao {
-  flex: 1;
   width: 130px; 
   padding: 10px 14px !important;
   border: solid 1px #104fcb;
@@ -157,26 +53,28 @@
 
 .ContainesItens {
   display: flex;
-  gap: 10rem;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 2rem 4rem;
   padding: 20px 30px;
-  background-color: rgb(247, 244, 244);
   width: 100%;
+  background-color: rgb(247, 244, 244);
 }
 
-.logo-coluna {
-  width: 100px;
-  height: auto;
+.logo-coluna,
+.endereco-coluna,
+.social-coluna {
+  min-width: 250px;
+  flex: 1;
 }
 
 .footer-logo {
-  width: 170px;
+  width: 150px;
   height: auto;
 }
 
 .endereco-coluna {
-  text-align: center;
   color: #0d6efd;
   font-size: 1rem;
   line-height: 1.5;
@@ -199,6 +97,7 @@
 .social-icons {
   display: flex;
   gap: 15px;
+  justify-content: center;
 }
 
 .social-icons a {
@@ -222,16 +121,50 @@
 .BordaAbaixo {
   color: white;
   background-color: #104fcb;
-  padding: 0.1%;
-  z-index: 1001;
-  padding-top: 15px
-
+  padding: 15px 10px;
+  font-size: 0.8rem;
 }
 
 @media (max-width: 768px) {
+  .Rodape {
+    border-top-width: 1.5rem;
+  }
+
   .ContainesItens {
     flex-direction: column;
     gap: 30px;
-    text-align: center;
   }
+
+  .TituloVerde {
+    font-size: 1.45rem !important;
+  }
+  .DescricaoCinza {
+    font-size: 1rem !important;
+  }
+  .NumeroAzul {
+    font-size: 2.3rem !important;
+  }
+
+
+}
+
+.textosGeral {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+}
+.TituloVerde {
+  color: #4A9901;
+  font-size: xx-large;
+  font-weight: bold;
+}
+.DescricaoCinza {
+  color: #848484;
+  font-size: 22px;
+}
+.NumeroAzul {
+  color: #104fcb;
+  font-size: xxx-large;
+  font-weight: bold;
 }
