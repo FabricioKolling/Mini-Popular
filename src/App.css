@@ -1,0 +1,1160 @@
+/* Container máximo */
+.navbar-content-wrapper {
+  max-width: 1540px; 
+}
+
+/* Navbar Superior */
+.top-navbar {
+  background-color: #f8f9fa; 
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Logo */
+.logo {
+  width: 270px; 
+  height: auto; 
+}
+
+/* Barra de Pesquisa */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 2px solid #104fcb; 
+  border-radius: 50px; 
+  padding: 0.25rem 1rem;
+  max-width: 100%;
+}
+
+.search-icon, .mic-icon {
+  color: #6c757d;
+  font-size: 1.2rem;
+}
+
+.search-input {
+  border: none; 
+  box-shadow: none !important; 
+  background-color: transparent;
+  width: 100%;
+  padding: 0.3rem 0.5rem;
+}
+
+.search-input:focus {
+  outline: none;
+  background-color: transparent;
+}
+
+/* Login Section */
+.login-section {
+  color: #343a40 !important;
+  display: flex;
+  align-items: center;
+}
+
+.login-icon {
+  color: #848484;
+  width: 3rem;
+  height: 3rem;
+}
+
+.login-text {
+  line-height: 1.2;
+  font-size: 1rem;
+  text-align: left;
+  color: #848484;
+  margin-left: 0.5rem;
+}
+
+.login-text span {
+  display: block;
+  font-weight: 600;
+}
+
+/* Botão Salvos */
+.cart-button {
+  border-radius: 50px !important;
+  font-weight: bold !important;
+  font-size: 1.2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0.5rem 1.5rem !important;
+  background-color: #4a9901;
+  color: white;
+  border: none;
+}
+
+/* Ícone Roleta */
+.roulette-icon {
+  color: #000 !important;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .navbar-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Centralizar navbar nav */
+  .top-navbar .nav {
+    justify-content: center !important;
+  }
+
+  /* Logo menor e centralizado */
+  .logo {
+    width: 180px;
+    margin-bottom: 1rem;
+  }
+
+  /* Barra de pesquisa ocupa toda largura com padding */
+  .search-container {
+    width: 90%;
+    margin: 0 auto 1rem auto;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Ajustar ícones abaixo da pesquisa */
+  nav.d-flex {
+    width: 100%;
+    justify-content: center !important;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .login-section,
+  .cart-button,
+  .roulette-icon {
+    margin: 0 0.5rem;
+  }
+
+  .login-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- ESTILOS PARA A BARRA AZUL --- */
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 80' width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='10' fill='white'/%3E%3Crect y='30' width='100' height='10' fill='white'/%3E%3Crect y='60' width='100' height='10' fill='white'/%3E%3C/svg%3E");
+}
+
+.custom-navbar {
+  background-color: #104fcb;
+}
+
+.menu-item {
+  color: white !important; 
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 0.430rem 1.5rem;  
+  margin: 0 2rem;         
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.menu-item:hover {
+  color: #d1d1d1 !important;
+}
+
+.carousel-image {
+  height: 800px;
+  width: 100%;
+}
+
+/* ---{BannerOfertas}--- */
+
+.BannerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.PromocaoPrincipal {
+  display: flex;
+  background-color: #e9e9e9;
+  border-radius: 20px;
+  padding: 25px;
+  gap: 25px;
+  align-items: center;
+  max-width: 750px;
+  flex-grow: 1;
+}
+
+.ImagemProduto {
+  width: 300px;
+  height: auto;
+  border-radius: 15px;
+}
+
+.ConteudoInfo {
+  text-align: left;
+}
+
+.PromoBadge {
+  display: inline-block;
+  background-color: #1d4ed8;
+  color: #fdd835;
+  padding: 8px 24px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.NomeProduto {
+  color: #333;
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin-top: 20px;
+}
+
+.DescricaoProduto {
+  color: #555;
+  margin-top: 10px;
+  max-width: 400px;
+}
+
+.PrecoWrapper {
+  margin-top: 25px;
+}
+
+.PorApenas {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.PrecoTag {
+  display: inline-block;
+  background-color: #1d4ed8;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-size: 1.3rem;
+  font-weight: normal;
+  line-height: 1.2;
+  margin-left: 4%;
+}
+
+.PrecoTag strong {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.ListaOfertas {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 280px;
+}
+
+.BotaoOferta {
+  display: flex;
+  align-items: center;
+  background-color: #e0e0e0;
+  padding: 1rem;
+  border-radius: 15px;
+  gap: 15px;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.BotaoOferta:hover {
+  background-color: #d1d5db;
+}
+
+.BotaoOferta.active {
+  border-color: #1d4ed8;
+  background-color: #e5e7eb;
+}
+
+.MiniaturaOferta {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.NomeOferta {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.produto-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #f2f2f2;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  gap: 15px;
+}
+
+/* Coluna da imagem */
+.produto-foto {
+  background: #ccc;
+  border-radius: 8px;
+  width: 70px;
+  height: 70px;
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+
+/* Coluna do nome e descrição */
+.produto-dados {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.produto-nome {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.produto-desc {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Coluna dos controles */
+.produto-controles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.quantidade-label {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.quantidade-controle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.quantidade-numero {
+  width: 24px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.acoes {
+  display: flex;
+  gap: 5px;
+}
+
+/* Estilo do item marcado como comprado */
+.produto-card.comprado {
+  background-color: #e0e0e0;
+  filter: grayscale(0.6);
+  transition: all 0.3s ease;
+}
+
+/* Linha de risco no meio */
+.produto-card.comprado::before {
+  content: '';
+  position: absolute;
+  height: 2px;
+  background-color: #333;
+  top: 50%;
+  left: 10px;
+  right: 10px;
+  animation: riscar 0.3s ease forwards;
+}
+
+@keyframes riscar {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Rodape */
+
+.RodapeTotal {
+  width: 100%;
+  text-align: center;
+  margin-top: auto;
+}
+
+.Rodape {
+  background-color: rgb(247, 244, 244);
+  border-top: solid 3rem #104fcb;
+  gap: 10px;
+  padding: 0 20px;
+  transition: border-width 0.3s ease;
+}
+
+.BotoesTp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 1rem 0;
+}
+
+.botao {
+  width: 130px; 
+  padding: 10px 14px !important;
+  border: solid 1px #104fcb;
+  border-radius: 15px;
+  background-color: rgb(247, 244, 244);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ContainesItens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem 4rem;
+  padding: 20px 30px;
+  width: 100%;
+  background-color: rgb(247, 244, 244);
+}
+
+.logo-coluna,
+.endereco-coluna,
+.social-coluna {
+  min-width: 250px;
+  flex: 1;
+}
+
+.footer-logo {
+  width: 150px;
+  height: auto;
+}
+
+.endereco-coluna {
+  color: #0d6efd;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.endereco-coluna p {
+  margin: 0;
+}
+
+.social-coluna {
+  text-align: center;
+}
+
+.social-coluna h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #0d6efd;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0d6efd;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: opacity 0.2s;
+}
+
+.social-icons a:hover {
+  opacity: 0.8;
+}
+
+.BordaAbaixo {
+  color: white;
+  background-color: #104fcb;
+  padding: 15px 10px;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .Rodape {
+    border-top-width: 1.5rem;
+  }
+
+  .ContainesItens {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .TituloVerde {
+    font-size: 1.45rem !important;
+  }
+  .DescricaoCinza {
+    font-size: 1rem !important;
+  }
+  .NumeroAzul {
+    font-size: 2.3rem !important;
+  }
+
+
+}
+
+.textosGeral {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+}
+.TituloVerde {
+  color: #4A9901;
+  font-size: xx-large;
+  font-weight: bold;
+}
+.DescricaoCinza {
+  color: #848484;
+  font-size: 22px;
+}
+.NumeroAzul {
+  color: #104fcb;
+  font-size: xxx-large;
+  font-weight: bold;
+}
+
+.fotoProduto img {
+  max-width: 60%;
+}
+
+/* src/estilos.css */
+
+/* Reset básico para garantir consistência entre navegadores */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Inclui padding e borda no tamanho total do elemento */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte padrão */
+  background-color: #f0f0f0; /* Fundo cinza claro para a "borda" externa */
+}
+
+/* ----------------------------------------------------- */
+/* --- ESTILOS GLOBAIS DA PÁGINA (PaginaProduto.jsx) --- */
+/* ----------------------------------------------------- */
+
+/* Contêiner principal da página: define a largura máxima e a margem externa */
+.container-pagina-principal {
+  background-color: #f0f0f0; /* Fundo cinza claro que você pediu */
+  max-width: 1200px; /* Largura máxima para o conteúdo da página */
+  margin: 20px auto; /* Centraliza o contêiner e adiciona 20px de margem em cima/em baixo */
+  padding: 20px; /* Este padding cria o espaçamento interno, dando a "borda" branca */
+  border-radius: 8px; /* Cantos arredondados para o contêiner principal */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sombra suave para destacar o contêiner */
+}
+
+/* ----------------------------------------------------- */
+/* --- ESTILOS DA SEÇÃO DE CATEGORIA --- */
+/* (Divs com classes como .container-padaria, .container-cereal, etc.) */
+/* ----------------------------------------------------- */
+
+.container-categoria {
+  background-color: #ffffff; /* Fundo branco para cada seção de categoria */
+  padding: 20px; /* Espaçamento interno da categoria */
+  border-radius: 8px; /* Cantos arredondados para a categoria */
+  margin-bottom: 30px; /* Espaço entre as diferentes categorias */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+}
+
+.titulo-secao-categoria {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 0; /* Remove margem superior padrão do h2 */
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee; /* Linha separadora abaixo do título */
+}
+
+/* Contêiner da lista de produtos dentro de cada categoria (o "carrossel" natural) */
+.lista-produtos-categoria {
+  display: flex; /* Coloca os produtos um ao lado do outro */
+  overflow-x: auto; /* Habilita a rolagem horizontal se houver muitos produtos */
+  gap: 20px; /* Espaço entre os cartões de produto */
+  padding-bottom: 15px; /* Espaço para a barra de rolagem (mesmo que oculta) */
+  /* Remover a barra de rolagem padrão do navegador */
+  scrollbar-width: none; /* Para Firefox */
+  -ms-overflow-style: none; /* Para Internet Explorer e Edge */
+}
+
+.lista-produtos-categoria::-webkit-scrollbar {
+  display: none; /* Para navegadores baseados em WebKit (Chrome, Safari, Opera) */
+}
+
+/* ----------------------------------------------------- */
+/* --- ESTILOS DO CARTÃO DE PRODUTO (ProdutoCard.jsx) --- */
+/* ----------------------------------------------------- */
+
+.cartao-produto {
+  flex: 0 0 200px; /* **Tamanho Fixo:** O cartão terá 200px de largura. */
+                     /* 'flex-grow: 0' impede que ele cresça */
+                     /* 'flex-shrink: 0' impede que ele encolha */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Garante que nada vaze das bordas arredondadas */
+  position: relative; /* Para posicionar elementos filhos (selo, botão) */
+  display: flex;
+  flex-direction: column; /* Organiza os elementos do cartão verticalmente */
+  border: 1px solid #eee; /* Borda clara */
+}
+
+.area-imagem-card {
+  width: 100%;
+  height: 150px; /* **Altura Fixa:** A área da imagem terá 150px de altura */
+  background-color: #e0e0e0; /* Fundo cinza para placeholders */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #f0f0f0; /* Separador sutil */
+}
+
+.imagem-card {
+  max-width: 100%; /* Garante que a imagem não seja maior que seu contêiner */
+  max-height: 100%; /* Garante que a imagem não seja maior que seu contêiner */
+  object-fit: cover; /* **Recorta e Preenche:** Faz a imagem cobrir a área sem distorcer, cortando o excesso */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.selo-oferta {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #8bc34a; /* Verde */
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  z-index: 10;
+}
+
+.botao-adicionar {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #8bc34a; /* Verde */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease;
+}
+
+.botao-adicionar:hover {
+  background-color: #7cb342; /* Verde mais escuro no hover */
+}
+
+.corpo-card {
+  padding: 10px 15px;
+  flex-grow: 1; /* Permite que o corpo do card ocupe o espaço vertical restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Empurra a descrição para o final se necessário */
+}
+
+.titulo-card {
+  font-size: 16px; /* **Tamanho Fixo do Título** */
+  font-weight: 600;
+  color: #333;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  white-space: nowrap; /* Impede que o título quebre linha */
+  overflow: hidden; /* Oculta o texto que excede a largura */
+  text-overflow: ellipsis; /* Adiciona "..." ao texto excedente */
+}
+
+.area-preco-card {
+  display: flex;
+  align-items: baseline; /* Alinha a base da moeda com a base do preço */
+  margin-bottom: 10px;
+}
+
+.moeda-card {
+  font-size: 14px;
+  color: #555;
+  margin-right: 5px;
+}
+
+.preco-card {
+  font-size: 22px; /* **Tamanho Fixo do Preço** */
+  font-weight: bold;
+  color: #007bff; /* Azul */
+}
+
+.texto-card {
+  font-size: 12px; /* **Tamanho Fixo da Descrição** */
+  color: #777;
+  line-height: 1.4;
+  margin-top: auto; /* Empurra a descrição para o final da área de info */
+  /* Limita a descrição a 2 linhas e adiciona reticências */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limita a 2 linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ----------------------------------------------------- */
+/* --- RESPONSIVIDADE BÁSICA (Apenas para garantir que não quebre em telas pequenas) --- */
+/* ----------------------------------------------------- */
+
+@media (max-width: 1240px) {
+  /* Se a tela for menor que 1200px (max-width) + 20px de padding de cada lado,
+     o container principal já se adapta, mantendo o padding. */
+  .container-pagina-principal {
+    margin: 15px auto; /* Reduz a margem externa em telas um pouco menores */
+    padding: 15px; /* Reduz o padding externo */
+  }
+}
+
+@media (max-width: 768px) {
+  .container-pagina-principal,
+  .container-categoria {
+    padding: 10px; /* Reduz o padding geral em telas médias */
+  }
+  .titulo-secao-categoria {
+    font-size: 20px;
+  }
+  .cartao-produto {
+    flex: 0 0 160px; /* Largura do cartão menor para telas menores */
+  }
+  .area-imagem-card {
+    height: 120px; /* Altura da imagem menor */
+  }
+  .botao-adicionar {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-pagina-principal,
+  .container-categoria {
+    padding: 8px; /* Reduz ainda mais o padding em telas muito pequenas */
+  }
+  .titulo-secao-categoria {
+    font-size: 18px;
+  }
+  .cartao-produto {
+    flex: 0 0 140px; /* Largura do cartão ainda menor */
+  }
+  .area-imagem-card {
+    height: 100px; /* Altura da imagem muito menor */
+  }
+  .preco-card {
+    font-size: 18px;
+  }
+  .titulo-card {
+    font-size: 14px;
+  }
+  .texto-card {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 1240px) {
+  .container-pagina-principal {
+    margin: 15px auto; /* Reduz um pouco a margem externa */
+    padding: 15px; /* Reduz o padding externo */
+  }
+}
+
+/* === Tablets e Desktops Menores (max-width: 992px) === */
+@media (max-width: 992px) {
+  /* Banner de Ofertas (BannerContainer) */
+  .BannerContainer {
+    flex-direction: column; /* Empilha o banner principal e a lista de ofertas */
+    align-items: center; /* Centraliza o conteúdo quando empilhado */
+    padding: 1.5rem; /* Ajusta o padding do banner */
+    gap: 25px; /* Espaço entre os blocos empilhados */
+    /* Removido max-width do BannerContainer aqui, pois o container-pagina-principal já limita */
+    margin-bottom: 30px; /* Mantém o espaçamento entre o banner e as categorias */
+  }
+
+  .PromocaoPrincipal {
+    flex-direction: column; /* Empilha a imagem e as informações do produto principal */
+    width: 100%; /* Ocupa toda a largura disponível */
+    max-width: 550px; /* Limita a largura em telas maiores de tablet */
+    padding: 20px;
+    gap: 20px; /* Espaço entre a imagem e o texto */
+    text-align: center; /* Centraliza o texto */
+  }
+
+  .ImagemProduto {
+    width: 100%; /* Imagem do produto principal ocupa toda a largura */
+    height: 220px; /* Altura fixa para a imagem do banner principal */
+    object-fit: cover;
+  }
+
+  .ConteudoInfo {
+    text-align: center; /* Centraliza o texto das informações do produto */
+  }
+
+  .NomeProduto {
+    font-size: 1.6rem; /* Ajusta tamanho do título do produto no banner */
+    margin-top: 15px;
+  }
+
+  .DescricaoProduto {
+    max-width: none; /* Remove a limitação de largura para a descrição */
+    font-size: 0.95rem;
+  }
+
+  .PrecoWrapper {
+    justify-content: center; /* Centraliza o wrapper do preço */
+  }
+
+  .PrecoTag {
+    font-size: 1.1rem;
+    padding: 8px 20px;
+  }
+
+  .PrecoTag strong {
+    font-size: 2rem;
+  }
+
+  .ListaOfertas {
+    width: 100%; /* Ocupa toda a largura disponível */
+    max-width: 400px; /* Limita a largura da lista de botões em tablets */
+    flex-direction: row; /* Coloca os botões de oferta um ao lado do outro */
+    flex-wrap: wrap; /* Permite que os botões quebrem para a próxima linha */
+    justify-content: center; /* Centraliza os botões na linha */
+  }
+
+  .BotaoOferta {
+    flex: 1 1 calc(50% - 15px); /* Dois botões por linha com espaço entre eles */
+    max-width: 250px; /* Limita a largura máxima de cada botão individualmente */
+    justify-content: center;
+    text-align: center;
+    flex-direction: column; /* Empilha imagem e texto dentro do botão de oferta */
+    gap: 8px;
+  }
+  .MiniaturaOferta {
+    width: 50px;
+    height: 50px;
+  }
+  .NomeOferta {
+    font-size: 1rem;
+  }
+
+  /* Cards de Produto (cartao-produto) */
+  .cartao-produto {
+    flex: 0 0 180px; /* Reduz a largura fixa do cartão para telas de tablet */
+  }
+  .area-imagem-card {
+    height: 130px; /* Reduz a altura da imagem do cartão */
+  }
+  .titulo-card {
+    font-size: 15px; /* Ajusta o tamanho do título do cartão */
+  }
+  .preco-card {
+    font-size: 20px; /* Ajusta o tamanho do preço do cartão */
+  }
+  .texto-card {
+    font-size: 11px; /* Ajusta o tamanho da descrição do cartão */
+    -webkit-line-clamp: 3; /* Permite até 3 linhas na descrição para melhor visualização */
+  }
+}
+
+/* === Celulares (max-width: 768px - também afeta tablets em portrait) === */
+@media (max-width: 768px) {
+  /* Contêiner principal da página e seções de categoria */
+  .container-pagina-principal,
+  .container-categoria {
+    padding: 10px; /* Reduz o padding geral para caber mais conteúdo */
+  }
+  .titulo-secao-categoria {
+    font-size: 20px;
+  }
+
+  /* Cards de Produto (cartao-produto) */
+  .cartao-produto {
+    flex: 0 0 150px; /* Reduz ainda mais a largura do cartão para telas menores */
+  }
+  .area-imagem-card {
+    height: 100px; /* Altura da imagem do cartão menor */
+  }
+  .botao-adicionar {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+  .preco-card {
+    font-size: 18px;
+  }
+  .titulo-card {
+    font-size: 14px;
+  }
+  .texto-card {
+    font-size: 10px;
+    -webkit-line-clamp: 2; /* Volta para 2 linhas se ficar muito apertado em telas menores */
+  }
+
+  /* Banner de Ofertas (refinamento para telas menores) */
+  .BannerContainer {
+    padding: 1rem;
+    gap: 15px;
+  }
+  .PromocaoPrincipal {
+    padding: 15px;
+    max-width: none; /* Ocupa toda a largura disponível */
+    gap: 15px;
+  }
+  .NomeProduto {
+    font-size: 1.4rem;
+    margin-top: 10px;
+  }
+  .PromoBadge {
+    padding: 6px 15px;
+    font-size: 1rem;
+  }
+  .PrecoTag {
+    font-size: 1rem;
+    padding: 6px 15px;
+  }
+  .PrecoTag strong {
+    font-size: 1.8rem;
+  }
+  .ListaOfertas {
+    flex-direction: column; /* Volta a empilhar os botões de oferta */
+    max-width: none;
+    gap: 10px;
+  }
+  .BotaoOferta {
+    flex: 1 1 auto; /* Ocupa a largura total disponível */
+    max-width: none;
+    flex-direction: row; /* Volta a ter imagem ao lado do texto */
+    justify-content: flex-start; /* Alinha à esquerda */
+    padding: 0.8rem;
+    gap: 10px;
+  }
+  .MiniaturaOferta {
+    width: 45px;
+    height: 45px;
+  }
+  .NomeOferta {
+    font-size: 1.1rem;
+  }
+}
+
+/* === Celulares Pequenos (max-width: 480px, como um iPhone SE ou 14 em portrait) === */
+@media (max-width: 480px) {
+  .container-pagina-principal {
+    padding: 8px; /* Reduz ainda mais o padding global */
+  }
+  .secao-categoria {
+    padding: 10px; /* Reduz ainda mais o padding interno da seção */
+  }
+  .titulo-secao-categoria {
+    font-size: 16px;
+  }
+  .cartao-produto {
+    flex: 0 0 130px; /* Largura do cartão ainda menor */
+    gap: 5px; /* Reduz o gap entre os itens */
+  }
+  .area-imagem-card {
+    height: 90px; /* Altura da imagem muito menor */
+  }
+  .preco-card {
+    font-size: 16px;
+  }
+  .titulo-card {
+    font-size: 13px;
+  }
+  .texto-card {
+    font-size: 9px;
+    -webkit-line-clamp: 2; /* Mantém 2 linhas, ou ajuste para 1 se necessário */
+  }
+
+  /* Banner de Ofertas (refinamento para telas bem pequenas) */
+  .BannerContainer {
+    padding: 0.8rem;
+    gap: 15px;
+  }
+  .PromocaoPrincipal {
+    padding: 10px;
+    gap: 10px;
+  }
+  .NomeProduto {
+    font-size: 1.2rem;
+    margin-top: 8px;
+  }
+  .PromoBadge {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+  }
+  .PrecoWrapper {
+    flex-direction: column; /* Empilha "Por apenas" e o preço */
+    align-items: center;
+    gap: 5px;
+  }
+  .PorApenas {
+    font-size: 0.8rem;
+  }
+  .PrecoTag {
+    font-size: 0.9rem;
+    padding: 5px 15px;
+  }
+  .PrecoTag strong {
+    font-size: 1.5rem;
+  }
+  .ListaOfertas {
+    gap: 8px;
+  }
+  .BotaoOferta {
+    padding: 0.7rem;
+    gap: 8px;
+  }
+  .MiniaturaOferta {
+    width: 40px;
+    height: 40px;
+  }
+  .NomeOferta {
+    font-size: 0.9rem;
+  }
+}
