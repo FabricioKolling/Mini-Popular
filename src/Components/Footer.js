@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaInstagram, FaWhatsapp, FaEnvelope, FaFacebookF } from 'react-icons/fa';
-import Logo from '../img/Mini Popular (3).png';
+import Logo from '../Img/MiniPopular3.png'; 
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -9,16 +10,16 @@ function Footer() {
         {/* ---{Botões de tp}--- */}
         <div className='BotoesTp'>
           <div className='BotaoFooter'>
-            <button className='botao'>Home</button>
+            <Link to="/" className='botao'>Home</Link>
           </div>
           <div className='BotaoFooter'>
-            <button className='botao'>Sobre</button>
+            <Link to="/sobre" className='botao'>Sobre</Link>
           </div>
           <div className='BotaoFooter'>
-            <button className='botao'>Produtos</button>
+            <Link to="/produtos" className='botao'>Produtos</Link>
           </div>
           <div className='BotaoFooter'>
-            <button className='botao'>Contato</button>
+            <Link to="/contato" className='botao'>Contato</Link>
           </div>
         </div>
 

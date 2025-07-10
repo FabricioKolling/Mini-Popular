@@ -1,19 +1,649 @@
-.navbar {
-  background-color: #104fcb;
-  color: white;
+/* Container máximo */
+.navbar-content-wrapper {
+  max-width: 1540px; 
 }
-.menu {
-  color: white;
-  border-right: solid 1px white;
+
+/* Navbar Superior */
+.top-navbar {
+  background-color: #f8f9fa; 
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #dee2e6;
 }
-.menus {
-  color: white;
+
+/* Logo */
+.logo {
+  width: 270px; 
+  height: auto; 
 }
-.menu .menus {
+
+/* Barra de Pesquisa */
+.search-container {
   display: flex;
+  align-items: center;
+  background-color: white;
+  border: 2px solid #104fcb; 
+  border-radius: 50px; 
+  padding: 0.25rem 1rem;
+  max-width: 100%;
+}
+
+.search-icon, .mic-icon {
+  color: #6c757d;
+  font-size: 1.2rem;
+}
+
+.search-input {
+  border: none; 
+  box-shadow: none !important; 
+  background-color: transparent;
+  width: 100%;
+  padding: 0.3rem 0.5rem;
+}
+
+.search-input:focus {
+  outline: none;
+  background-color: transparent;
+}
+
+/* Login Section */
+.login-section {
+  color: #343a40 !important;
+  display: flex;
+  align-items: center;
+}
+
+.login-icon {
+  color: #848484;
+  width: 3rem;
+  height: 3rem;
+}
+
+.login-text {
+  line-height: 1.2;
+  font-size: 1rem;
+  text-align: left;
+  color: #848484;
+  margin-left: 0.5rem;
+}
+
+.login-text span {
+  display: block;
+  font-weight: 600;
+}
+
+/* Botão Salvos */
+.cart-button {
+  border-radius: 50px !important;
+  font-weight: bold !important;
+  font-size: 1.2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0.5rem 1.5rem !important;
+  background-color: #4a9901;
+  color: white;
+  border: none;
+}
+
+/* Ícone Roleta */
+.roulette-icon {
+  color: #000 !important;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .navbar-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Centralizar navbar nav */
+  .top-navbar .nav {
+    justify-content: center !important;
+  }
+
+  /* Logo menor e centralizado */
+  .logo {
+    width: 180px;
+    margin-bottom: 1rem;
+  }
+
+  /* Barra de pesquisa ocupa toda largura com padding */
+  .search-container {
+    width: 90%;
+    margin: 0 auto 1rem auto;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Ajustar ícones abaixo da pesquisa */
+  nav.d-flex {
+    width: 100%;
+    justify-content: center !important;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .login-section,
+  .cart-button,
+  .roulette-icon {
+    margin: 0 0.5rem;
+  }
+
+  .login-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- ESTILOS PARA A BARRA AZUL --- */
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 80' width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='10' fill='white'/%3E%3Crect y='30' width='100' height='10' fill='white'/%3E%3Crect y='60' width='100' height='10' fill='white'/%3E%3C/svg%3E");
+}
+
+.custom-navbar {
+  background-color: #104fcb;
+}
+
+.menu-item {
+  color: white !important; 
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 0.430rem 1.5rem;  
+  margin: 0 2rem;         
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.menu-item:hover {
+  color: #d1d1d1 !important;
+}
+
+.carousel-image {
+  height: 700px;
+  width: 100%;
+  margin-bottom: 7%;
+}
+
+.carrossel-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.slide-wrapper {
+  padding: 10px;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.slide-image {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(0.9);
+  transition: transform 0.5s ease-in-out;
+  filter: brightness(0.8);
+}
+
+.slick-center .slide-image {
+  transform: scale(1.1);
+  z-index: 10;
+  filter: brightness(1);
+}
+
+/* Custom arrows */
+.slick-prev:before,
+.slick-next:before {
+  font-size: 40px;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .carrossel-container {
+    padding: 1rem 0;
+  }
+
+  .slide-image {
+    transform: scale(0.95);
+  }
+
+  .slick-center .slide-image {
+    transform: scale(1);
+  }
+}
+
+.custom-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.custom-arrow:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.custom-arrow-left {
+  left: 10px;
+}
+
+.custom-arrow-right {
+  right: 10px;
+}
+
+.slide-wrapper {
+  display: flex !important;
   justify-content: center;
   align-items: center;
 }
+
+.slide-image {
+  border-radius: 12px;
+  max-width: 100%;
+  transition: transform 0.4s ease;
+}
+
+.textosGeral {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+}
+.TituloVerde {
+  color: #4A9901;
+  font-size: xx-large;
+  font-weight: bold;
+}
+.DescricaoCinza {
+  color: #848484;
+  font-size: 22px;
+}
+.NumeroAzul {
+  color: #104fcb;
+  font-size: xxx-large;
+  font-weight: bold;
+}
+
+.pagina-produtos {
+  margin: 0 auto;
+  padding-left: 1rem; /* espaçamento lateral pequeno */
+  padding-right: 1rem;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+/* Wrapper do banner para controlar largura e bordas arredondadas */
+.pagina-produtos > div:first-child {
+  max-width: 1200px;
+  margin: 1rem auto 2rem auto;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 0; /* sem padding para não aumentar espaço */
+}
+
+/* Banner promoção */
+.banner-promocao {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 20px; /* bordas arredondadas no banner */
+  background-color: #f4f4f4;
+  box-sizing: border-box;
+}
+
+/* Banner principal dentro do banner */
+.banner-principal {
+  flex: 3;
+  display: flex;
+  gap: 1rem;
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+/* Texto banner */
+.texto-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Destaque amarelo */
+.destaque {
+  background: yellow;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 0.2rem 0.5rem;
+  align-self: flex-start;
+}
+
+/* Preço azul */
+.preco {
+  color: #0077ff;
+  font-size: 2rem;
+}
+
+/* Ofertas laterais */
+.ofertas-laterais {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.oferta {
+  padding: 1rem;
+  background: #eee;
+  border: none;
+  border-radius: 15px; /* bordas arredondadas */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: border 0.3s ease;
+}
+
+.oferta.ativa {
+  border: 2px solid #0077ff;
+  background: #ddf1ff;
+}
+
+/* Conteúdo principal: filtro + lista produtos */
+.conteudo-principal {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 1rem 2rem 1rem; /* margem lateral reduzida para aproximar da borda */
+  max-width: 1300px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Filtro de pesquisa */
+.filtro-pesquisa {
+  flex: 1;
+  max-width: 300px; /* ocupa menos espaço */
+  background: #f2f2f2;
+  padding: 1rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-sizing: border-box;
+  height: fit-content;
+  user-select: none;
+}
+
+/* Títulos do filtro */
+.filtro-pesquisa h3,
+.filtro-pesquisa h4 {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+/* Lista de produtos */
+.lista-produtos {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: calc(100% - 320px); /* sobra espaço após o filtro */
+  box-sizing: border-box;
+}
+
+/* Título da categoria */
+.categoria h2 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+/* Linha horizontal dos produtos - carrossel */
+.linha-produtos {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: #0077ff #f4f4f4;
+}
+
+/* Custom scrollbar WebKit */
+.linha-produtos::-webkit-scrollbar {
+  height: 8px;
+}
+
+.linha-produtos::-webkit-scrollbar-thumb {
+  background-color: #0077ff;
+  border-radius: 20px;
+}
+
+/* Cartão do produto */
+.produto-card {
+  min-width: 180px;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  text-align: center;
+  background: #fff;
+  transition: transform 0.2s;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 20px; /* bordas arredondadas */
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.produto-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+}
+
+/* Foto produto */
+.foto-produto {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.foto-produto img {
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+/* Etiqueta destaque */
+.etiqueta {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: green;
+  color: white;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* Botão adicionar */
+.botao-adicionar {
+  background: #0077ff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.botao-adicionar:hover {
+  background-color: #005bb5;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .conteudo-principal {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+  .filtro-pesquisa,
+  .lista-produtos {
+    max-width: 100%;
+    flex: unset;
+  }
+  .linha-produtos {
+    justify-content: center;
+  }
+  .banner-promocao {
+    flex-direction: column;
+  }
+  .banner-principal,
+  .ofertas-laterais {
+    flex: unset;
+    width: 100%;
+  }
+  .ofertas-laterais {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .oferta {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Rodape */
 
 .RodapeTotal {
   width: 100%;
@@ -49,6 +679,13 @@
   font-weight: 500;
   cursor: pointer;
   color: black;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .ContainesItens {
