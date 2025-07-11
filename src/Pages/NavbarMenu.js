@@ -7,25 +7,28 @@ import Button from 'react-bootstrap/Button';
 import ListaCompras from '../Components/ListaCompras';
 import Logo from '../Img/logo2.png';
 import { Link } from 'react-router-dom';
+import RoletaModal from '../Components/RoletaModal';
 
 import { FaSearch, FaMicrophone, FaUserCircle, FaFilm } from 'react-icons/fa';
 import { BsFillBookmarkFill } from 'react-icons/bs';
 
 function NavbarMenu() {
   const [showCarrinho, setShowCarrinho] = useState(false);
+  const [showRoleta, setShowRoleta] = useState(false);
 
   const abrirCarrinho = () => setShowCarrinho(true);
   const fecharCarrinho = () => setShowCarrinho(false);
 
+  const abrirRoleta = () => setShowRoleta(true);
+  const fecharRoleta = () => setShowRoleta(false);
+
   return (
     <>
-      {/* Navbar Superior (com logo, busca e ações) */}
       <Navbar bg="light" expand="lg" className="top-navbar">
         <Container fluid className="d-flex justify-content-center">
           <div className="navbar-content-wrapper d-flex align-items-center justify-content-between flex-wrap w-100">
 
-            {/* Logo */}
-            <Link to="/ " className="p-0">
+            <Link to="/" className="p-0">
               <img
                 src={Logo}
                 className="d-inline-block align-top logo"
@@ -33,7 +36,6 @@ function NavbarMenu() {
               />
             </Link>
 
-            {/* Barra de Pesquisa */}
             <Form className="d-flex mx-auto search-container">
               <FaSearch className="search-icon me-2" />
               <Form.Control
@@ -45,7 +47,6 @@ function NavbarMenu() {
               <FaMicrophone className="mic-icon ms-2" />
             </Form>
 
-            {/* Ações do Usuário (Login, Salvos, etc.) */}
              <Nav className="d-flex flex-row align-items-center">
               <Nav.Link href="#login" className="d-flex align-items-center me-3 login-section">
                 <FaUserCircle size={35} className="login-icon" />
@@ -60,16 +61,15 @@ function NavbarMenu() {
                 <span className="ms-2">0</span> 
               </Button>
 
-              <Nav.Link href="#videos" className="roulette-icon">
+              <Button variant="link" onClick={abrirRoleta} className="roulette-icon p-0">
                 <FaFilm size={28} />
-              </Nav.Link>
+              </Button>
             </Nav>
 
           </div>
         </Container>
       </Navbar>
 
-      {/* Navbar Inferior (com os links de navegação principais) */}
       <Navbar className="custom-navbar" variant="dark" expand="lg">
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -84,8 +84,8 @@ function NavbarMenu() {
         </Container>
       </Navbar>
 
-      {/* MODAL DO CARRINHO */}
       <ListaCompras show={showCarrinho} onHide={fecharCarrinho} />
+      <RoletaModal isOpen={showRoleta} onClose={fecharRoleta} />
     </>
   );
 }
