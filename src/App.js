@@ -7,14 +7,12 @@ import Home from './Pages/Home';
 import Sobre from './Pages/Sobre';
 import Produtos from './Pages/Produtos';
 import Contato from './Pages/Contato';
-import ListaCompras from './Components/ListaCompras.js';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      
       <Router>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<Sobre />} />

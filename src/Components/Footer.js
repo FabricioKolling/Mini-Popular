@@ -7,6 +7,7 @@ function Footer() {
   return (
     <footer className='RodapeTotal'> 
       <div className='Rodape'>
+        
         {/* ---{Botões de tp}--- */}
         <div className='BotoesTp'>
           <div className='BotaoFooter'>

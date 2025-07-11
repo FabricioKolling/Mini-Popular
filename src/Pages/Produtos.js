@@ -18,6 +18,7 @@ function Produto() {
             nome="Pão Francês Fresquinho"
             descricao="Tradicional pão francês assado na hora."
             preco="0,80"
+            categoria='padaria'
             emOferta={false}
             urlImagem="https://conteudo.imguol.com.br/c/entretenimento/65/2020/10/19/pao-frances-1603114029092_v2_4x3.jpg"
           />

@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import ListaCompras from '../Components/ListaCompras';
 import Logo from '../Img/logo2.png';
+import { Link } from 'react-router-dom';
 
 import { FaSearch, FaMicrophone, FaUserCircle, FaFilm } from 'react-icons/fa';
 import { BsFillBookmarkFill } from 'react-icons/bs';
@@ -24,13 +25,13 @@ function NavbarMenu() {
           <div className="navbar-content-wrapper d-flex align-items-center justify-content-between flex-wrap w-100">
 
             {/* Logo */}
-            <Navbar.Brand href="#home" className="p-0">
+            <Link to="/ " className="p-0">
               <img
                 src={Logo}
                 className="d-inline-block align-top logo"
                 alt="Logo Mini Popular"
               />
-            </Navbar.Brand>
+            </Link>
 
             {/* Barra de Pesquisa */}
             <Form className="d-flex mx-auto search-container">
@@ -45,11 +46,11 @@ function NavbarMenu() {
             </Form>
 
             {/* Ações do Usuário (Login, Salvos, etc.) */}
-            <Nav className="d-flex align-items-center">
-              <Nav.Link href="#login" className="login-section me-3">
-                <FaUserCircle className="login-icon" />
-                <div className="login-text d-none d-lg-block">
-                  Entre ou
+             <Nav className="d-flex flex-row align-items-center">
+              <Nav.Link href="#login" className="d-flex align-items-center me-3 login-section">
+                <FaUserCircle size={35} className="login-icon" />
+                <div className="login-text ms-2">
+                  <span>Entre ou</span>
                   <span>Cadastre-se</span>
                 </div>
               </Nav.Link>
@@ -74,10 +75,10 @@ function NavbarMenu() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto">
-              <Nav.Link href="#home" className='menu-item'>Home</Nav.Link>
-              <Nav.Link href="#Sobre" className='menu-item'>Mini Popular</Nav.Link>
-              <Nav.Link href="#produtos" className='menu-item'>Produtos</Nav.Link>
-              <Nav.Link href="#contato" className='menu-item'>Contato</Nav.Link>
+              <Link to="/" className='menu-item'>Home</Link>
+              <Link to="/sobre" className='menu-item'>Mini Popular</Link>
+              <Link to="/produtos" className='menu-item'>Produtos</Link>
+              <Link to="/contato" className='menu-item'>Contato</Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
