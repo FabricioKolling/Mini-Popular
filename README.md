@@ -8,6 +8,19 @@ npm install react-bootstrap bootstrap react-icons
 npm i react-router-dom
 npm install pg dotenv express
 ```
+
+## .Env:
+
+```
+USER_NAME='postgres'
+HOST_NAME='localhost'
+DB_NAME='DBpopular'
+DB_PASSWORD='senai'
+DB_DIALECT='postgres'
+PORT_NUMBER='5432'
+PORT=3000
+```
+
 ### Figma:
 
 ```
