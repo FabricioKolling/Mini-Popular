@@ -1,4 +1,4 @@
-# Instale:
+# Instale (Frontend):
 
 ```
 npm install react-bootstrap bootstrap
@@ -7,6 +7,11 @@ npm install react-icons
 npm install react-bootstrap bootstrap react-icons
 npm i react-router-dom
 npm install pg dotenv express
+npm i express pg cors dotenv
+```
+
+# Instale (Backend):
+```
 npm i express pg cors dotenv
 ```
 
