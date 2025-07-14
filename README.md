@@ -18,13 +18,13 @@ npm i express pg cors dotenv
 ## .Env:
 
 ```
-USER_NAME='postgres'
-HOST_NAME='localhost'
-DB_NAME='DBpopular'
-DB_PASSWORD='senai'
-DB_DIALECT='postgres'
-PORT_NUMBER='5432'
-PORT=3000
+PORT='3001'
+DB_USER = 'postgres'
+DB_HOST = 'localhost'
+DB_DATABASE = 'dbpopular'
+DB_DIALECT = 'postgres'
+DB_PASSWORD = 'senai'
+DB_PORT = '5432'
 ```
 
 ### Figma:
