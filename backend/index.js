@@ -1,11 +1,8 @@
+require('dotenv').config(); // Garanta que esta é a primeira linha!
+
 const express = require('express');
 const cors = require('cors');
 const db = require('./db.js');
-
-// const dotenv = require('dotenv');
-// dotenv.config();
-
-// require('dotenv').config();
 
 const app = express();
 const port = 3001;
@@ -17,7 +14,7 @@ app.use(express.json());
 const CATEGORIAS_ROLETA = ['PADARIA', 'CARNES E FRIOS', 'HORTIFRÚTI', 'LATICÍNIOS E CEREAIS', 'BEBIDAS', 'CONGELADOS'];
 const DESCONTO_PERCENTUAL = 15;
 const DURACAO_DESCONTO_HORAS = 4;
-const COOLDOWN_ROLETA_HORAS = 0.0025;
+const COOLDOWN_ROLETA_HORAS = 1.00;
 
 // --- ROTAS DA API ---
 
@@ -55,7 +52,7 @@ app.get('/api/produtos', async (req, res) => {
   }
 });
 
-// ROTAS para verificar o status e girar a roleta
+// ROTA COM A CORREÇÃO NO CÁLCULO DO TEMPO
 app.get('/api/roleta/status', async (req, res) => {
   const clientID = req.headers['x-client-id'];
   if (!clientID) {
@@ -70,7 +67,8 @@ app.get('/api/roleta/status', async (req, res) => {
     }
 
     const ultimoGiro = new Date(result.rows[0].ultimo_giro_roleta);
-    const proximoGiro = new Date(ultimoGiro.getTime() + COOLDOWN_ROLETA_HORAS * 15);
+    // CÁLCULO CORRIGIDO AQUI
+    const proximoGiro = new Date(ultimoGiro.getTime() + (COOLDOWN_ROLETA_HORAS * 60 * 60 * 1000));
     
     if (new Date() >= proximoGiro) {
       res.json({ pode_girar: true });
@@ -83,36 +81,63 @@ app.get('/api/roleta/status', async (req, res) => {
   }
 });
 
+
+// --- LÓGICA DA ROLETA REATORADA ---
+
+// POST /api/roleta/girar -> Apenas verifica o cooldown e SORTEIA um prêmio
 app.post('/api/roleta/girar', async (req, res) => {
   const clientID = req.headers['x-client-id'];
   if (!clientID) {
     return res.status(400).json({ error: 'Client ID não fornecido' });
   }
 
-  const client = await db.pool.connect();
   try {
-    await client.query('BEGIN');
-
-    const statusResult = await client.query('SELECT ultimo_giro_roleta FROM clientes_anonimos WHERE client_id = $1 FOR UPDATE', [clientID]);
+    const statusResult = await db.query('SELECT ultimo_giro_roleta FROM clientes_anonimos WHERE client_id = $1', [clientID]);
     if (statusResult.rows.length > 0) {
         const ultimoGiro = new Date(statusResult.rows[0].ultimo_giro_roleta);
-        if (new Date().getTime() - ultimoGiro.getTime() < COOLDOWN_ROLETA_HORAS * 60 * 60 * 1000) {
-            await client.query('ROLLBACK');
+        // CÁLCULO CORRIGIDO AQUI TAMBÉM
+        if (new Date().getTime() - ultimoGiro.getTime() < (COOLDOWN_ROLETA_HORAS * 60 * 60 * 1000)) {
             return res.status(429).json({ error: 'Você já girou a roleta recentemente.' });
         }
     }
     
+    // Apenas sorteia e retorna, não salva nada no banco ainda.
     const indiceSorteado = Math.floor(Math.random() * CATEGORIAS_ROLETA.length);
     const categoriaSorteada = CATEGORIAS_ROLETA[indiceSorteado];
-    const dataExpiracao = new Date(new Date().getTime() + DURACAO_DESCONTO_HORAS * 60 * 60 * 1000);
+    
+    res.json({ categoria_premiada: categoriaSorteada });
 
+  } catch (e) {
+    console.error("Erro ao verificar o giro da roleta", e);
+    res.status(500).json({ error: 'Erro ao processar a verificação do giro' });
+  }
+});
+
+// NOVA ROTA PATCH -> Ativa o desconto e o cooldown APÓS o giro no frontend
+app.patch('/api/roleta/ativar-desconto', async (req, res) => {
+  const clientID = req.headers['x-client-id'];
+  const { categoria } = req.body; // Recebe a categoria do frontend
+
+  if (!clientID || !categoria) {
+    return res.status(400).json({ error: 'Client ID ou categoria não fornecidos' });
+  }
+
+  const client = await db.pool.connect();
+  try {
+    await client.query('BEGIN');
+    
+    const dataExpiracao = new Date(new Date().getTime() + (DURACAO_DESCONTO_HORAS * 60 * 60 * 1000));
+
+    // 1. Limpa qualquer desconto antigo que o usuário possa ter
     await client.query('DELETE FROM descontos_ativos_anonimos WHERE client_id = $1', [clientID]);
     
+    // 2. Insere o novo desconto
     await client.query(
       'INSERT INTO descontos_ativos_anonimos (client_id, categoria_desconto, percentual_desconto, data_expiracao) VALUES ($1, $2, $3, $4)',
-      [clientID, categoriaSorteada, DESCONTO_PERCENTUAL, dataExpiracao]
+      [clientID, categoria, DESCONTO_PERCENTUAL, dataExpiracao]
     );
 
+    // 3. Atualiza o tempo do último giro (inicia o cooldown)
     await client.query(
       `INSERT INTO clientes_anonimos (client_id, ultimo_giro_roleta)
        VALUES ($1, NOW())
@@ -122,15 +147,36 @@ app.post('/api/roleta/girar', async (req, res) => {
     );
 
     await client.query('COMMIT');
-    res.json({ categoria_premiada: categoriaSorteada, desconto: DESCONTO_PERCENTUAL });
+    res.status(200).json({ message: 'Desconto ativado com sucesso!' });
 
   } catch (e) {
     await client.query('ROLLBACK');
-    console.error("Erro ao processar o giro da roleta", e);
-    res.status(500).json({ error: 'Erro ao processar o giro da roleta' });
+    console.error("Erro ao ativar o desconto", e);
+    res.status(500).json({ error: 'Erro ao ativar o desconto' });
   } finally {
     client.release();
   }
+});
+
+
+// --- NOVA ROTA DELETE ---
+app.delete('/api/desconto', async (req, res) => {
+    const clientID = req.headers['x-client-id'];
+    if (!clientID) {
+        return res.status(400).json({ error: 'Client ID não fornecido' });
+    }
+
+    try {
+        const result = await db.query('DELETE FROM descontos_ativos_anonimos WHERE client_id = $1', [clientID]);
+        if (result.rowCount > 0) {
+            res.status(200).json({ message: 'Desconto removido com sucesso.' });
+        } else {
+            res.status(404).json({ message: 'Nenhum desconto ativo encontrado para remover.' });
+        }
+    } catch (err) {
+        console.error("Erro ao remover desconto:", err);
+        res.status(500).json({ error: 'Erro interno do servidor ao remover desconto.' });
+    }
 });
 
 

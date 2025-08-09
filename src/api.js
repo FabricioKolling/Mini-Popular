@@ -17,4 +17,12 @@ apiClient.interceptors.request.use(config => {
   return Promise.reject(error);
 });
 
-export default apiClient;
+// Agrupamos os métodos em um objeto para exportação
+const api = {
+  get: (url, config) => apiClient.get(url, config),
+  post: (url, data, config) => apiClient.post(url, data, config),
+  patch: (url, data, config) => apiClient.patch(url, data, config),
+  delete: (url, config) => apiClient.delete(url, config),
+};
+
+export default api;

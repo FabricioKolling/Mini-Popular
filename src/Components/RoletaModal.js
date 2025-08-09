@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import apiClient from '../api';
+import api from '../api'; // Alterado para usar o novo arquivo api.js
 
 const categorias = ['PADARIA', 'CARNES E FRIOS', 'HORTIFRÚTI', 'LATICÍNIOS E CEREAIS', 'BEBIDAS', 'CONGELADOS'];
 const TOTAL_FATIAS = categorias.length;
@@ -15,7 +15,7 @@ const RoletaModal = ({ isOpen, onClose }) => {
 
   const atualizarStatusRoleta = async () => {
     try {
-      const { data } = await apiClient.get('/roleta/status');
+      const { data } = await api.get('/roleta/status');
       setPodeGirar(data.pode_girar);
 
       if (!data.pode_girar && data.proximo_giro_disponivel_em) {
@@ -68,12 +68,14 @@ const RoletaModal = ({ isOpen, onClose }) => {
     }
 
     try {
-        const { data } = await apiClient.post('/roleta/girar');
+        // 1. CHAMA O POST para apenas SORTEAR A CATEGORIA
+        const { data } = await api.post('/roleta/girar');
         const categoriaSorteada = data.categoria_premiada;
         const indiceSorteado = categorias.findIndex(c => c === categoriaSorteada);
 
         setTimeout(() => {
             if (roletaRef.current) {
+                // Inicia a animação da roleta
                 roletaRef.current.style.transition = 'transform 7s cubic-bezier(.2,.9,.3,1)';
                 const anguloDeParada = 270 - (indiceSorteado * ANGULO_POR_FATIA) - (ANGULO_POR_FATIA / 2);
                 const voltasExtras = 360 * 5;
@@ -81,20 +83,35 @@ const RoletaModal = ({ isOpen, onClose }) => {
 
                 roletaRef.current.style.transform = `rotate(${rotacaoTotal}deg)`;
 
-                setTimeout(() => {
+                // APÓS O FIM DA ANIMAÇÃO
+                setTimeout(async () => {
+                  try {
+                    // 2. CHAMA O PATCH para ATIVAR O DESCONTO E O COOLDOWN NO BACKEND
+                    await api.patch('/roleta/ativar-desconto', { categoria: categoriaSorteada });
+
                     setIsSpinning(false);
                     setResultado(categoriaSorteada);
                     atualizarStatusRoleta();
                     alert(`Parabéns! Você ganhou 15% de desconto em ${categoriaSorteada} por 4 horas! A página será atualizada.`);
                     window.location.reload();
-                }, 7000);
+                  } catch (patchError) {
+                    console.error("Erro ao ativar o desconto:", patchError);
+                    alert('Houve um problema ao registrar seu prêmio. Tente novamente.');
+                    setIsSpinning(false);
+                  }
+                }, 7000); // 7 segundos de duração da animação
             }
         }, 50);
 
     } catch(error) {
         console.error("Erro ao girar a roleta", error);
-        alert('Não foi possível girar a roleta. Tente novamente mais tarde.');
+        // Trata o erro específico de "cooldown ativo"
+        const errorMsg = error.response?.status === 429 
+            ? 'Você já girou a roleta recentemente. Aguarde o tempo acabar.'
+            : 'Não foi possível girar a roleta. Tente novamente mais tarde.';
+        alert(errorMsg);
         setIsSpinning(false);
+        atualizarStatusRoleta(); // Garante que o timer seja exibido corretamente
     }
   };
 
