@@ -2,7 +2,8 @@
 
 <img width="1896" height="880" alt="image" src="https://github.com/user-attachments/assets/ad88b192-82c2-4bb0-9d1a-148a071b39ff" />
 
-Este é um projeto desenvolvido para simular um sistema de mini mercado utilizando a biblioteca React. O sistema permite funcionalidades como cadastro de produtos, gerenciamento de estoque e simulação de vendas. É uma aplicação simples com foco em praticar os conceitos de componentes, estados, props e hooks no React.
+Este projeto foi desenvolvido para colocar em prática os conhecimentos adquiridos em React e Back-End, aplicando conceitos aprendidos durante as aulas. Trata-se de um site com o tema de mini mercado, chamado "Mini Popular", que busca oferecer uma experiência simples, funcional e interativa ao usuário.
+O sistema destaca nossas habilidades na criação de componentes reutilizáveis e no uso completo do CRUD (Create, Read, Update e Delete), permitindo criar, atualizar, remover e exibir descontos de forma dinâmica.
 
 ## Integrantes do Projeto
 
@@ -50,3 +51,4 @@ DB_PORT = '5432'
 https://www.figma.com/design/xuvmTGyoxBDBW8X84PwAgG/Mini-Popular?node-id=7-2&t=oS0CRbk0uj7KdvMR-0
 
 ```
+
