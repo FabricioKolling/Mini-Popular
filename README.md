@@ -15,6 +15,30 @@ O sistema destaca nossas habilidades na criação de componentes reutilizáveis 
   *Responsabilidades:*  
   Rodapé, Tela de Compras, Tela de Contato, Roleta de Descontos e Backend
 
+## Detalhes sobre o Design:
+
+### Figma:
+
+```
+https://www.figma.com/design/xuvmTGyoxBDBW8X84PwAgG/Mini-Popular?node-id=7-2&t=oS0CRbk0uj7KdvMR-0
+
+```
+
+### Conceito Inicial:
+
+<img width="505" height="370" alt="image" src="https://github.com/user-attachments/assets/8a1818a2-665d-4332-b179-57990e1b1401" /><img width="505" height="390" alt="image" src="https://github.com/user-attachments/assets/2e8ab7ae-1aec-471d-b1bb-7c0a1a0b21f3" />
+
+### Paleta de Cor:
+
+#fdaf1e
+#4a9901
+#104fcb
+
+<img width="178" height="75" alt="image" src="https://github.com/user-attachments/assets/f268b998-e628-4387-be8a-a7bccc2c5b1f" />
+
+### Logo:
+
+<img width="363" height="305" alt="image" src="https://github.com/user-attachments/assets/5c8e1940-2aaf-4e51-9886-6fad73999135" />
 
 ## Instale (Frontend):
 
@@ -44,32 +68,6 @@ DB_DIALECT = 'postgres'
 DB_PASSWORD = 'senai'
 DB_PORT = '5432'
 ```
-
-## Detalhes sobre o Design:
-
-### Figma:
-
-```
-https://www.figma.com/design/xuvmTGyoxBDBW8X84PwAgG/Mini-Popular?node-id=7-2&t=oS0CRbk0uj7KdvMR-0
-
-```
-
-### Conceito Inicial:
-
-<img width="505" height="370" alt="image" src="https://github.com/user-attachments/assets/8a1818a2-665d-4332-b179-57990e1b1401" /><img width="505" height="390" alt="image" src="https://github.com/user-attachments/assets/2e8ab7ae-1aec-471d-b1bb-7c0a1a0b21f3" />
-
-### Paleta de Cor:
-
-#fdaf1e
-#4a9901
-#104fcb
-
-<img width="178" height="75" alt="image" src="https://github.com/user-attachments/assets/f268b998-e628-4387-be8a-a7bccc2c5b1f" />
-
-### Logo:
-
-<img width="363" height="305" alt="image" src="https://github.com/user-attachments/assets/5c8e1940-2aaf-4e51-9886-6fad73999135" />
-
 
 
 
